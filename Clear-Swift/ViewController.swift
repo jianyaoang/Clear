@@ -18,6 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         creatingToDoItems()
+        configureTableView()
+    }
+    
+    func configureTableView() {
+        
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.rowHeight = 60.0;
         
     }
 
@@ -39,6 +46,8 @@ class ViewController: UIViewController {
             let toDoItem8 = ToDoItem(descriptionOfTask: "Buy Ellie Goulding concert tickets")
             let toDoItem9 = ToDoItem(descriptionOfTask: "Practice cover songs on acoustic guitar")
             let toDoItem10 = ToDoItem(descriptionOfTask: "Get a haircut")
+            let toDoItem11 = ToDoItem(descriptionOfTask: "Checkout resorts in Bali for Sam")
+            let toDoItem12 = ToDoItem(descriptionOfTask: "Purchase new iPod Touch 6th Gen for Desmond")
             
             toDoTasks.append(toDoItem1)
             toDoTasks.append(toDoItem2)
@@ -50,6 +59,8 @@ class ViewController: UIViewController {
             toDoTasks.append(toDoItem8)
             toDoTasks.append(toDoItem9)
             toDoTasks.append(toDoItem10)
+            toDoTasks.append(toDoItem11)
+            toDoTasks.append(toDoItem12)
 
         }
     }
@@ -76,6 +87,27 @@ extension ViewController: UITableViewDataSource {
         return cell
         
     }
+}
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return tableView.rowHeight
+    }
+    
+    func applyGradientColorToGradient(indexPath: Int) -> UIColor {
+        
+        let tableViewItemCount = toDoTasks.count - 1
+        let greenFloat = (CGFloat(indexPath) / CGFloat(tableViewItemCount)) * 0.8
+        return UIColor(red: 1.0, green: greenFloat, blue: 0.0, alpha: 1)
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        cell.backgroundColor = applyGradientColorToGradient(indexPath.row)
+        
+    }
+    
 }
 
 

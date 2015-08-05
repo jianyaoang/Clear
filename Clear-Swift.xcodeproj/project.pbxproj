@@ -14,6 +14,7 @@
 		3B0636691B70495600170E0B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B0636671B70495600170E0B /* LaunchScreen.xib */; };
 		3B0636751B70495600170E0B /* Clear_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0636741B70495600170E0B /* Clear_SwiftTests.swift */; };
 		3B06367F1B704A7A00170E0B /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06367E1B704A7A00170E0B /* ToDoItem.swift */; };
+		3B06368D1B7199AB00170E0B /* ToDoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B06368C1B7199AB00170E0B /* ToDoItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		3B0636731B70495600170E0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B0636741B70495600170E0B /* Clear_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clear_SwiftTests.swift; sourceTree = "<group>"; };
 		3B06367E1B704A7A00170E0B /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		3B06368C1B7199AB00170E0B /* ToDoItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				3B06365E1B70495600170E0B /* AppDelegate.swift */,
 				3B0636601B70495600170E0B /* ViewController.swift */,
+				3B06368C1B7199AB00170E0B /* ToDoItemTableViewCell.swift */,
 				3B0636621B70495600170E0B /* Main.storyboard */,
 				3B06367E1B704A7A00170E0B /* ToDoItem.swift */,
 				3B0636651B70495600170E0B /* Images.xcassets */,
@@ -217,6 +220,7 @@
 			files = (
 				3B0636611B70495600170E0B /* ViewController.swift in Sources */,
 				3B06365F1B70495600170E0B /* AppDelegate.swift in Sources */,
+				3B06368D1B7199AB00170E0B /* ToDoItemTableViewCell.swift in Sources */,
 				3B06367F1B704A7A00170E0B /* ToDoItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

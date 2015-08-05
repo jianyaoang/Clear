@@ -23,8 +23,11 @@ class ViewController: UIViewController {
     
     func configureTableView() {
         
+        tableView.registerClass(ToDoItemTableViewCell.self, forCellReuseIdentifier: "ToDoItemCell")
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.rowHeight = 60.0;
+        tableView.backgroundColor = UIColor.blackColor()
+
         
     }
 
@@ -78,7 +81,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("ToDoItemCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ToDoItemCell", forIndexPath: indexPath) as! ToDoItemTableViewCell
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         let toDoItem = toDoTasks[indexPath.row] as ToDoItem
         

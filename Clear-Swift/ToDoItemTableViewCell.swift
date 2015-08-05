@@ -8,10 +8,19 @@
 
 import UIKit
 
+protocol ToDoItemTableViewCellDelegate {
+    
+    func removeToDoItemFromList(todoItem: ToDoItem)
+}
+
 class ToDoItemTableViewCell: UITableViewCell {
 
     var originalCenter = CGPoint()
     var removeCellOnPanGestureDrag = false
+    
+    //optional because this property is to be set in ViewController not in cell's init
+    var delegate: ToDoItemTableViewCellDelegate?
+    var toDoItem: ToDoItem?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,6 +73,15 @@ class ToDoItemTableViewCell: UITableViewCell {
                     self.frame = originalFrame
                 })
                 
+            }
+            
+            if removeCellOnPanGestureDrag {
+                
+                if delegate != nil && toDoItem != nil {
+                    
+                    delegate!.removeToDoItemFromList(toDoItem!)
+                    
+                }
             }
         }
     }

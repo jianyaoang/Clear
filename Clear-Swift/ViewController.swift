@@ -69,6 +69,26 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ToDoItemTableViewCellDelegate {
+    
+    func removeToDoItemFromList(todoItem: ToDoItem) {
+        
+        let index = (toDoTasks as NSArray).indexOfObject(todoItem)
+        if index == NSNotFound {
+            return
+        }
+        
+        toDoTasks.removeAtIndex(index)
+        
+        // use the UITableView to animate the removal of this row
+        tableView.beginUpdates()
+        let indexPathForRow = NSIndexPath(forRow: index, inSection: 0)
+        tableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
+        tableView.endUpdates()
+    }
+    
+}
+
 extension ViewController: UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -82,9 +102,11 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoItemCell", forIndexPath: indexPath) as! ToDoItemTableViewCell
+        cell.delegate = self
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         
         let toDoItem = toDoTasks[indexPath.row] as ToDoItem
+        cell.toDoItem = toDoItem
         
         cell.textLabel?.text = toDoItem.descriptionOfTask
         
